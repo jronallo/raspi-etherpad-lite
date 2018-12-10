@@ -25,15 +25,19 @@ install ()
         install $@
 }
 
-install gzip git-core curl python libssl-dev pkg-config build-essential
+install gzip git-core curl python libssl-dev pkg-config build-essential nodejs
+
+npm install -g npm
 
 # install nodejs v.0.8.25 for arm, as etherpad-lite require nodejs v.0.8.x
-wget https://gist.github.com/raw/3245130/v0.10.24/node-v0.10.24-linux-arm-armv6j-vfp-hard.tar.gz -O /tmp/node-v0.10.24-linux-arm-armv6j-vfp-hard.tar.gz
-(cd /usr/local/ ; tar -xvzf /tmp/node-v0.10.24-linux-arm-armv6j-vfp-hard.tar.gz --strip=1)
-rm -f /tmp/node-v0.8.25-linux-arm-armv6j-vfp-hard.tar.gz
+# wget https://gist.github.com/raw/3245130/v0.10.24/node-v0.10.24-linux-arm-armv6j-vfp-hard.tar.gz -O /tmp/node-v0.10.24-linux-arm-armv6j-vfp-hard.tar.gz
+# (cd /usr/local/ ; tar -xvzf /tmp/node-v0.10.24-linux-arm-armv6j-vfp-hard.tar.gz --strip=1)
+# rm -f /tmp/node-v0.8.25-linux-arm-armv6j-vfp-hard.tar.gz
 
 #git-clone to /opt/etherpad-lite
-git clone git://github.com/ether/etherpad-lite.git $target
+# TODO: re-enable this!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+# This needs to be done manually in order to remove development dependencies which won't currently install.
+# git clone git://github.com/ether/etherpad-lite.git $target
 
 #Create settings.json
 cp $target/settings.json.template $target/settings.json
